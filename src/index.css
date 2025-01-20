@@ -1,0 +1,17 @@
+:root {
+  --font:"Roboto", serif;
+  --blanco:#fff;
+  --negro: #131313;
+  --darkgray: #000;
+  --ligth:#001233;
+  --azul:#6BD1FF;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+

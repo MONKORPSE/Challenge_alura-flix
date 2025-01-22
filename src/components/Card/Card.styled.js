@@ -8,10 +8,9 @@ export const CardContainer = styled.div`
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   overflow: hidden;
   transition: transform 0.3s;
-
-  &:hover {
-    transform: scale(1.05);
-  }
+  margin: 1rem; /* Añadido para evitar superposición */
+  display: flex;
+  flex-direction: column; /* Asegura que los elementos se dispongan en columna */
 `;
 
 export const CardImage = styled.img`

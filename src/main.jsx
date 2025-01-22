@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-
 import AppRoutes from "./routes";
 import GlobalStyles from "./Styles/GlobalStyles";
 import theme from "./Styles/Theme";

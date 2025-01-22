@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const CategoryTitle = styled.h2`
   width: 25%;
-  background-color: ${({ theme, category }) =>
-    theme.colors.categoryColors[category]};
+  background-color: ${({ theme, $category }) =>
+    theme.colors.categoryColors[$category]}; // Cambia 'category' a '$category'
   color: #fff;
   padding: 1rem;
   border-radius: 8px;

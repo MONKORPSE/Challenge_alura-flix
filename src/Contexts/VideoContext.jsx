@@ -14,16 +14,19 @@ export const useVideoContext = () => {
 
 export const VideoProvider = ({ children }) => {
   const [videos, setVideos] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchVideos = async () => {
+      setLoading(true);
       try {
         const videoData = await getVideos();
         setVideos(videoData);
-        setLoading(false);
       } catch (error) {
-        console.error("Error ao buscar videos", error);
+        console.error("Error al buscar videos", error);
+        setError("Error al cargar videos.");
+      } finally {
         setLoading(false);
       }
     };
@@ -35,7 +38,7 @@ export const VideoProvider = ({ children }) => {
       const addedVideo = await addVideoService(newVideo);
       setVideos((prevVideos) => [...prevVideos, addedVideo]);
     } catch (error) {
-      console.error("Erro ao adicionar vídeo", error);
+      console.error("Error al agregar video", error);
     }
   };
 
@@ -46,7 +49,7 @@ export const VideoProvider = ({ children }) => {
         prevVideos.filter((video) => video.id !== videoId)
       );
     } catch (error) {
-      console.error("Erro ao deletar video", error);
+      console.error("Error al eliminar video", error);
     }
   };
 
@@ -59,12 +62,11 @@ export const VideoProvider = ({ children }) => {
         )
       );
     } catch (error) {
-      console.error("Erro ao atualizar vídeo", error);
+      console.error("Error al actualizar video", error);
     }
   };
 
   const videoCategory = {};
-
   videos.forEach((video) => {
     const category = video.categoria;
     if (!videoCategory[category]) {
@@ -78,6 +80,7 @@ export const VideoProvider = ({ children }) => {
       value={{
         videos,
         loading,
+        error,
         videoCategory,
         addVideo,
         deleteVideo,

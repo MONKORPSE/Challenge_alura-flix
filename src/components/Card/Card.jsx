@@ -18,12 +18,11 @@ const Card = ({ video }) => {
 
   return (
     <CardContainer>
-      <CardImage src={video.img} alt={video.title} />
+      <CardImage src={video.img} alt={video.titulo} />
       <CardActions>
         <IconButton onClick={() => deleteVideo(video.id)}>
           <FaTrashAlt />
         </IconButton>
-
         <IconButton onClick={handleEdit}>
           <FaEdit />
         </IconButton>

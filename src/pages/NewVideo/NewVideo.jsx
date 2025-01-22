@@ -15,7 +15,7 @@ const NewVideo = () => {
     categoria: "",
     img: "",
     video: "",
-    descricao: "",
+    Descripción: "",
   });
 
   const handleChange = (e) => {
@@ -47,7 +47,7 @@ const NewVideo = () => {
 
   return (
     <FormContainer onSubmit={handleSubmit}>
-      <FormTitle>Adicionar Novo Vídeo</FormTitle>
+      <FormTitle>Agregar Nuevo Vídeo</FormTitle>
       <Input
         type="text"
         name="titulo"
@@ -67,7 +67,7 @@ const NewVideo = () => {
       <Input
         type="text"
         name="img"
-        placeholder="URL da Imagem"
+        placeholder="URL de Imagen"
         value={formData.img}
         onChange={handleChange}
         required
@@ -75,21 +75,21 @@ const NewVideo = () => {
       <Input
         type="text"
         name="video"
-        placeholder="URL do Vídeo"
+        placeholder="URL del Vídeo"
         value={formData.video}
         onChange={handleChange}
         required
       />
       <Textarea
-        name="descricao"
-        placeholder="Descrição"
+        name="Descripción"
+        placeholder="Descripción"
         value={formData.descricao}
         onChange={handleChange}
         required
       />
-      <Button type="submit">Salvar</Button>
+      <Button type="submit">Guardar</Button>
       <Button type="button" onClick={handleReset}>
-        Limpar
+        Borrar
       </Button>
     </FormContainer>
   );
